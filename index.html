@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HVAC Contractor Portal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>HVAC Contractor Portal</h1>
+    </header>
+
+    <section id="client-form">
+        <h2>Get Professional HVAC Leads</h2>
+        <p>Fill in your details and get high-quality leads delivered to you.</p>
+        
+        <form id="leadForm">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="text" name="company" placeholder="Company Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="tel" name="phone" placeholder="Your Phone Number" required>
+            <input type="text" name="address" placeholder="Your Address" required>
+            
+            <button type="submit">Proceed to Payment</button>
+        </form>
+
+        <p id="statusMessage" style="color: green; display: none;">Your details have been submitted successfully!</p>
+    </section>
+
+    <script defer>
+        document.getElementById("leadForm").addEventListener("submit", function(event) {
+            event.preventDefault(); 
+
+            let formData = new FormData(this);
+
+            fetch("https://formsubmit.co/ajax/kamallamser10@gmail.com", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById("statusMessage").style.display = "block";
+                    setTimeout(() => {
+                        window.location.href = "payment.html"; 
+                    }, 2000);
+                } else {
+                    alert("Submission failed. Try again.");
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("Error submitting form.");
+            });
+        });
+    </script>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: #eef2f3;
+            color: #333;
+        }
+        header {
+            background: #007bff;
+            color: white;
+            padding: 15px;
+            font-size: 26px;
+            font-weight: bold;
+        }
+        section {
+            margin: 30px auto;
+            padding: 25px;
+            width: 90%;
+            max-width: 450px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        input, button {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        button {
+            background: #28a745;
+            color: white;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #218838;
+        }
+    </style>
+</body>
+</html>

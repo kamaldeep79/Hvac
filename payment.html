@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HVAC Payment</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Complete Your Payment</h1>
+    </header>
+
+    <section id="payment-options">
+        <h2>Secure Your HVAC Leads</h2>
+        <p>Select a payment method to proceed.</p>
+        
+        <button onclick="payWithStripe()">Pay with Stripe</button>
+        <button onclick="payWithPayPal()">Pay with PayPal</button>
+    </section>
+
+    <script>
+        function payWithStripe() {
+            window.open("https://buy.stripe.com/test_xxx", "_blank");
+        }
+
+        function payWithPayPal() {
+            window.open("https://www.paypal.com/paypalme/YOUR_PAYPAL_LINK", "_blank");
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: #eef2f3;
+            color: #333;
+        }
+        header {
+            background: #007bff;
+            color: white;
+            padding: 20px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        section {
+            margin: 40px auto;
+            padding: 30px;
+            width: 90%;
+            max-width: 500px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            color: white;
+        }
+        button:first-of-type {
+            background: #007bff;
+        }
+        button:first-of-type:hover {
+            background: #0056b3;
+        }
+        button:last-of-type {
+            background: #ff5722;
+        }
+        button:last-of-type:hover {
+            background: #e64a19;
+        }
+    </style>
+</body>
+</html>
